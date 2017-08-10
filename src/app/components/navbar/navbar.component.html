@@ -1,0 +1,81 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-5">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsLogin" aria-controls="navbarsLogin" aria-expanded="false" aria-label="Toggle login">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">ADVERTS APP</a>
+
+  <div class="collapse navbar-collapse" id="navbarsLogin">
+    <form
+      class="form-inline my-2 my-lg-0 ml-auto"
+      *ngIf="!isLogedIn"
+      novalidate
+      #form="ngForm"
+      (ngSubmit)="checkUser(form)"
+    >
+      <div class="form-group">
+        <input
+          class="form-control mr-sm-2"
+          type="text"
+          placeholder="Username"
+          name="username"
+          minlength="5"
+          required
+          ngModel
+          #usernameInput="ngModel"
+        >
+        <div
+          class="mr-sm-2 popup text-center bg-warning"
+          *ngIf="usernameInput.errors?.required && usernameInput.touched"
+        >
+          Username is required ❗
+        </div>
+        <div
+          class="mr-sm-2 popup text-center bg-warning"
+          *ngIf="usernameInput.errors?.minlength"
+        >
+          At least 5 characters ❗
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control mr-sm-2"
+          type="password"
+          placeholder="Password"
+          name="password"
+          minlength="5"
+          required
+          ngModel
+          #passwordInput="ngModel"
+        >
+        <div
+          class="mr-sm-2 popup text-center bg-warning"
+          *ngIf="passwordInput.errors?.required && passwordInput.touched"
+        >
+          Password is required ❗
+        </div>
+        <div
+          class="mr-sm-2 popup text-center bg-warning"
+          *ngIf="passwordInput.errors?.minlength"
+        >
+          At least 5 characters ❗
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-success ml-2"
+      >Login</button>
+    </form>
+    <ul class="navbar-nav ml-auto" *ngIf="isLogedIn">
+      <li class="nav-item active">
+        <span class="nav-link text-danger">{{ user.username }}</span>
+      </li>
+      <li class="nav-item active">
+        <a
+          class="nav-link bg-inverse"
+          href="#"
+          (click)="logoutUser()"
+        >Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>

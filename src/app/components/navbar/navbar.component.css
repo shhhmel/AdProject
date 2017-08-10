@@ -1,0 +1,20 @@
+button {
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    cursor: pointer
+}
+
+.form-group {
+    position: relative;
+}
+
+.popup {
+    position: absolute;
+    top: calc(100% + 0.3rem);
+    left: 0;
+    width: calc(100% - 0.5rem);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0.4rem 1rem;
+}

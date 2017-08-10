@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.ngx-pagination {
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-bottom: 25px !important;
+    text-align: center;
+}
+
+.flash-message p {
+    margin-bottom: 0;
+    text-align: center
+}

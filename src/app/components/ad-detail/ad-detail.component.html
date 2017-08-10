@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col">
+    <a href="#" routerLink="/" class="btn btn-primary mb-3">Back to Advert Board</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-8 offset-lg-2">
+    <div class="card mb-4">
+      <div class="card-header">
+        <h2 class="text-center">{{ ad.title }}</h2>
+        <small class="text-muted float-right">Author: <em>{{ ad.authorName }}</em></small>
+      </div>
+      <div class="card-block">
+        <p class="card-text">{{ ad.description }}</p>
+      </div>
+      <div class="card-footer">
+         <div class="row">
+          <div class="col-sm-6">
+            <a
+              *ngIf="isLogedIn && ad.authorName === author"
+              href="#"
+              class="btn btn-danger"
+              (click)="removeAd(ad)"
+            >Delete</a>
+            <a
+              *ngIf="isLogedIn"
+              href="#"
+              class="btn btn-primary"
+              [routerLink]="['/edit/' + createdAtDatetime]"
+            >Edit</a>
+          </div>
+          <div class="col-sm-6">
+            <small class="text-muted float-right mt-2">Created: <em>{{ ad.createdAtDatetime | date:"yMMMdjms" }}</em></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

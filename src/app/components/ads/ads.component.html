@@ -1,0 +1,49 @@
+<h1 class="text-center text-primary mb-4">ADVERTS BOARD</h1>
+<p class="text-muted" *ngIf="ads?.length !== 0">Total adverts in the system: <span class="badge badge-info badge-pill">{{ totalAds() }}</span></p>
+
+<div class="alert alert-warning text-center" role="alert" *ngIf="ads?.length === 0">
+  <strong>Unfortunately!</strong> There are no adverts in the system. 😕
+</div>
+
+<div class="ads" *ngFor="let ad of ads | paginate: { itemsPerPage: 5, currentPage: p }">
+  <div class="card mb-4">
+    <div class="card-header">
+      <a href="#" class="h2" [routerLink]="['details/' + ad.createdAtDatetime]">{{ ad.title }}</a>
+      <small class="text-muted float-right">Author: <em>{{ ad.authorName }}</em></small>
+    </div>
+    <div class="card-block">
+      <p class="card-text">{{ ad.description }}</p>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-sm-6">
+          <a
+            *ngIf="isLogedIn && ad.authorName === author"
+            href="#"
+            class="btn btn-danger"
+            (click)="removeAd(ad)"
+          >Delete</a>
+          <a
+            *ngIf="isLogedIn"
+            href="#"
+            class="btn btn-primary"
+            [routerLink]="['edit/' + ad.createdAtDatetime]"
+          >Edit</a>
+        </div>
+        <div class="col-sm-6">
+          <small class="text-muted float-right mt-2">Created: <em>{{ ad.createdAtDatetime | date:"yMMMdjms" }}</em></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pagination-controls (pageChange)="p = $event" autoHide="true" previousLabel="Prev" nextLabel="Next" screenReaderPaginationLabel="Pagination"
+  screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page">
+  ></pagination-controls>
+
+
+<!-- <ng-template #noAds>
+  <hr>
+  <h1>There are no adverts in the system</h1>
+</ng-template> -->
