@@ -40,9 +40,8 @@ export class NavbarComponent implements OnInit {
     this.user.logedIn = false;
     this.users = this.authorizationService.logoutUser(this.user);
     // Hook to update components
-    this.hook()
+    this.hook();
     this.flashMessagesService.show('You are loged out 😶', { cssClass: 'alert-success', timeout: 4000 });
-    console.log('LOGOUT');
   }
 
   login() {
@@ -50,9 +49,8 @@ export class NavbarComponent implements OnInit {
     this.isLogedIn = true;
     this.users = this.authorizationService.logUser(this.user);
     // Hook to update components
-    this.hook()
+    this.hook();
     this.flashMessagesService.show('You are loged in 😀', { cssClass: 'alert-success', timeout: 4000 });
-    console.log('LOGIN');
   }
 
   registerAndLogin() {
@@ -60,9 +58,8 @@ export class NavbarComponent implements OnInit {
     this.isLogedIn = true;
     this.users = this.authorizationService.addUser(this.user);
     // Hook to update components
-    this.hook()
+    this.hook();
     this.flashMessagesService.show('You are registered and loged in 😀', { cssClass: 'alert-success', timeout: 4000 });
-    console.log('ADD USER');
   }
 
   checkUser(form) {
@@ -72,7 +69,7 @@ export class NavbarComponent implements OnInit {
         username: form.form.value.username,
         password: form.form.value.password,
         logedIn: false
-      }
+      };
 
       let flag = false;
 
@@ -81,15 +78,14 @@ export class NavbarComponent implements OnInit {
 
         // If User and Password is valid
         if (this.users[i].username === this.user.username && this.users[i].password === this.user.password) {
-          this.login()
-          flag = true
+          this.login();
+          flag = true;
           break;
 
         // If User valid and Password NOT
         } else if (this.users[i].username === this.user.username && this.users[i].password !== this.user.password) {
-          this.flashMessagesService.show('Password is invalid ❗', { cssClass: 'alert-danger', timeout: 4000 })
-          console.log('PASSWORD IS INVALID');
-          flag = true
+          this.flashMessagesService.show('Password is invalid ❗', { cssClass: 'alert-danger', timeout: 4000 });
+          flag = true;
           break;
         }
       }
@@ -97,7 +93,6 @@ export class NavbarComponent implements OnInit {
       // If there is no user
       if (!flag) {
         this.registerAndLogin();
-        console.log('registerAndLogin');
         flag = true;
       }
     }
@@ -105,9 +100,9 @@ export class NavbarComponent implements OnInit {
 
   hook() {
     this.router.navigate(['/add']).then(nav => {
-      this.router.navigate(['/']); // true if navigation is successful
+      this.router.navigate(['/']);
     }, err => {
-      console.log(err) // when there's an error
+      console.log(err);
     });
   }
 

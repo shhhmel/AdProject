@@ -19,11 +19,12 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 // Services
 import { DataService } from './services/data.service';
 import { AuthorizationService } from './services/authorization.service';
+import { AuthGuard } from './guards/auth.guard';
 
 const appRoutes: Routes = [
   { path: '', component: AdBoardComponent },
-  { path: 'add', component: AddAdComponent },
-  { path: 'edit/:createdAtDatetime', component: EditAddComponent },
+  { path: 'add', component: AddAdComponent, canActivate: [AuthGuard] },
+  { path: 'edit/:createdAtDatetime', component: EditAddComponent, canActivate: [AuthGuard] },
   { path: 'details/:createdAtDatetime', component: AdDetailComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     DataService,
-    AuthorizationService
+    AuthorizationService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

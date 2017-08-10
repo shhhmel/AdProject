@@ -28,7 +28,7 @@ export class AdsComponent implements OnInit {
   ngOnInit() {
     this.ads = this.dataService.getAds();
 
-    let users = this.authorizationService.getUsers();
+    const users = this.authorizationService.getUsers();
 
     for (let i = 0; i < users.length; i++) {
       if (users[i].logedIn) {

@@ -27,9 +27,9 @@ export class AuthorizationService {
   logUser(user: User) {
     for (let i = 0; i < this.users.length; i++) {
       if (this.users[i].username === user.username) {
-        this.users[i].logedIn = true
+        this.users[i].logedIn = true;
       } else {
-        this.users[i].logedIn = false
+        this.users[i].logedIn = false;
       }
     }
 
@@ -58,11 +58,10 @@ export class AuthorizationService {
       users = [];
 
       // Pusn new ad
-      users.unshift(user)
+      users.unshift(user);
 
       // Set new ad to LS
       localStorage.setItem('users', JSON.stringify(users));
-      console.log('USER ADDED - LS EMPTY');
       this.users = users;
       return this.users;
 
@@ -70,11 +69,10 @@ export class AuthorizationService {
       users = JSON.parse(localStorage.getItem('users'));
 
       // Pusn new ad
-      users.push(user)
+      users.push(user);
 
       // Set new ad to LS
       localStorage.setItem('users', JSON.stringify(users));
-      console.log('USER ADDED - LS FULL');
       this.users = users;
 
       return this.users;

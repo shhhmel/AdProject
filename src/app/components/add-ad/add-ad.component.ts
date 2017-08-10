@@ -14,8 +14,8 @@ export class AddAdComponent implements OnInit {
   isLogedIn: boolean;
   author: string;
   ad: Ad;
-  title: string = '';
-  description: string = '';
+  title = '';
+  description = '';
 
   constructor(
     private dataService: DataService,
@@ -25,7 +25,7 @@ export class AddAdComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let users = this.authorizationService.getUsers();
+    const users = this.authorizationService.getUsers();
 
     for (let i = 0; i < users.length; i++) {
       if (users[i].logedIn) {

@@ -23,7 +23,7 @@ export class DataService {
   getAd(date) {
     for (let i = 0; i < this.ads.length; i++) {
       // Check type of "createdAtDatetime"
-      if (typeof this.ads[i].createdAtDatetime == 'object') {
+      if (typeof this.ads[i].createdAtDatetime === 'object') {
         if (this.ads[i].createdAtDatetime.toJSON() === date) {
           // console.log('AD GOT');
           return this.ads[i];
@@ -46,7 +46,7 @@ export class DataService {
       ads = [];
 
       // Pusn new ad
-      ads.unshift(ad)
+      ads.unshift(ad);
 
       // Set new ad to LS
       localStorage.setItem('ads', JSON.stringify(ads));
@@ -56,7 +56,7 @@ export class DataService {
       ads = JSON.parse(localStorage.getItem('ads'));
 
       // Pusn new ad
-      ads.unshift(ad)
+      ads.unshift(ad);
 
       // Set new ad to LS
       localStorage.setItem('ads', JSON.stringify(ads));

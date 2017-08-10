@@ -30,7 +30,7 @@ export class AdDetailComponent implements OnInit {
 
     this.ad = this.dataService.getAd(this.createdAtDatetime);
 
-    let users = this.authorizationService.getUsers();
+    const users = this.authorizationService.getUsers();
 
     for (let i = 0; i < users.length; i++) {
       if (users[i].logedIn) {
