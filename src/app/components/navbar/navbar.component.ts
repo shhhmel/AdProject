@@ -99,7 +99,7 @@ export class NavbarComponent implements OnInit {
   }
 
   hook() {
-    this.router.navigate(['/add']).then(nav => {
+    this.router.navigate(['/404']).then(nav => {
       this.router.navigate(['/']);
     }, err => {
       console.log(err);
