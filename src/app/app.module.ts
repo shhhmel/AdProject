@@ -24,7 +24,8 @@ const appRoutes: Routes = [
   { path: '', component: AdBoardComponent },
   { path: 'add', component: AddAdComponent },
   { path: 'edit/:createdAtDatetime', component: EditAddComponent },
-  { path: 'details/:createdAtDatetime', component: AdDetailComponent }
+  { path: 'details/:createdAtDatetime', component: AdDetailComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
