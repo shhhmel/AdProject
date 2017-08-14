@@ -7,6 +7,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Bootstrap перешел на [beta-версию](https://getbootstrap.com/) и требовал в зависимости библиотеку [Popper.js](https://github.com/FezVrasta/popper.js/). Разработка велась c [alpha-версией Bootstrap](https://v4-alpha.getbootstrap.com/) и она требовала в зависимости [Tether](https://github.com/HubSpot/tether/). Из-за того что в dependencies файла package.json было прописано `"bootstrap": "^4.0.0-alpha.6"`, то при установке приложения устонавливалась beta-версия Bootstrap и вылетала ошибка с `require Popper.js`.
 Проблема решается или переходом на beta-версию Bootstrap или изменением файла package.json, а именно строки `"bootstrap": "^4.0.0-alpha.6"` на `"bootstrap": "4.0.0-alpha.6"`, чтобы при установке зависимостей устонавливалась только alpha-версия Bootstrap. Я выбрал `второй` вариант.
 
+## Ошибка с cannot find a differ supporting object ' object object ' of type 'object'
+
+Эта ошибка возникает когда для ngFor возврашается объект не являющийся массивом. Данной ошибки при обновлении проекта не обнаружил, поэтому решение предоставить не могу.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
