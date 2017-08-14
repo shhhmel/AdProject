@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Ошибка с require Popper.js
 
-Bootstrap перешел на beta-версию `https://getbootstrap.com/` и требовал в зависимости библиотеку Popper.js `https://github.com/FezVrasta/popper.js/`. Разработка велась c alpha-версией Bootstrap и она требовала в зависимости tether `https://github.com/HubSpot/tether/`. Из-за того что в dependencies файла package.json было прописано "bootstrap": "^4.0.0-alpha.6", то при установке приложения устонавливалась beta-версия Bootstrap и вылетала ошибка с require Popper.js.
+Bootstrap перешел на [beta-версию](https://getbootstrap.com/) и требовал в зависимости библиотеку [Popper.js](`https://github.com/FezVrasta/popper.js/). Разработка велась c [alpha-версией Bootstrap](https://v4-alpha.getbootstrap.com/) и она требовала в зависимости [Tether](https://github.com/HubSpot/tether/). Из-за того что в dependencies файла package.json было прописано `"bootstrap": "^4.0.0-alpha.6"`, то при установке приложения устонавливалась beta-версия Bootstrap и вылетала ошибка с `require Popper.js`.
 Проблема решается или переходом на beta-версию Bootstrap или изменением файла package.json, а именно строки `"bootstrap": "^4.0.0-alpha.6"` на `"bootstrap": "4.0.0-alpha.6"`, чтобы при установке зависимостей устонавливалась только alpha-версия Bootstrap. Я выбрал `второй` вариант.
 
 ## Development server
